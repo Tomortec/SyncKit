@@ -458,6 +458,7 @@ extension CloudKitSynchronizer {
         }
         
         let modifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: recordIDs)
+        modifyRecordsOperation.savePolicy = .allKeys
         modifyRecordsOperation.modifyRecordsCompletionBlock = { savedRecords, deletedRecordIDs, operationError in
             self.dispatchQueue.async {
                 
