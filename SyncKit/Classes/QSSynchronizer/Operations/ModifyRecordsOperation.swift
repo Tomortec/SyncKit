@@ -29,6 +29,7 @@ class ModifyRecordsOperation: CloudKitSynchronizerOperation {
         
     override func start() {
         let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: recordIDsToDelete)
+        operation.savePolicy = .allKeys
         
         operation.perRecordCompletionBlock = { record, error in
             if let error = error as? CKError,
